@@ -17,7 +17,7 @@ function App() {
           color:'black'
         }}
       >
-        <Link to="/invoices">Invoices</Link> |{" "}
+        <Link to="/invoices">Invoices</Link> <br />
         <Link to="/expenses">Expenses</Link>
       </nav>
       <UseEffect />
