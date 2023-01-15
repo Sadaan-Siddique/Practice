@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { UseEffect } from './components/Practice';
+import './app.css'
 import { Link } from "react-router-dom";
 function App() {
   // React Hooks
@@ -10,15 +11,11 @@ function App() {
   // Html
   return (
     <>
-      <nav
-        style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem",
-          color:'black'
-        }}
-      >
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+      <nav>
+        <Link style={{color:'white',textDecoration:'none'}}  to="/">Home</Link>:
+        <Link style={{color:'white',textDecoration:'none'}} to="/about">About</Link>:
+        <Link style={{color:'white',textDecoration:'none'}} to="/contact">Contact</Link>:
+        <Link style={{color:'white',textDecoration:'none'}} to="/others">Others</Link>
       </nav>
       <UseEffect />
 

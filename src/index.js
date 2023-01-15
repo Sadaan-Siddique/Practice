@@ -10,6 +10,7 @@ import Product from './Product';
 import Practice from './components/Practice';
 import Contact from './components/Contact';
 import About from './components/About';
+import Others from './components/Others';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
@@ -19,6 +20,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/others" element={<Others />} />
       </Routes>
     </BrowserRouter>
 
