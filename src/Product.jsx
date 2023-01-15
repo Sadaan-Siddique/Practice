@@ -8,6 +8,7 @@ function Product() {
     var b;
     function inptfunc(e){
       setInpt(e.target.value);
+      console.log(inpt);
     }
     function btn(){
     setArr([...arr,inpt]);
@@ -31,7 +32,7 @@ function Product() {
     // HTML
     return(
       <>
-      <h1>{arr}</h1>
+      <h1>{arr+inpt}</h1>
       UserName :    <input type="text" onChange={inptfunc}/>
       <button onClick={btn}>Submit</button>
       </>
