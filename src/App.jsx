@@ -17,8 +17,8 @@ function App() {
           color:'black'
         }}
       >
-        <Link to="/invoices">Invoices</Link> <br />
-        <Link to="/expenses">Expenses</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
       </nav>
       <UseEffect />
 
