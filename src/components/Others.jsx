@@ -10,7 +10,7 @@ function Others() {
     // JS
     function inptfunc(e){
         setInpt(e.target.value);
-        setArr([inpt])
+        setArr([...arr,inpt])
       }
     function newfunc(){
       console.log(arr);
