@@ -1,28 +1,47 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import AboutChild from './AboutChild';
-import { useEffect , useState } from 'react';
+import { useEffect, useState } from 'react';
 function About() {
     // React Hooks
-    
+    const [inptData, setInptData] = useState([]);
+    const [variable, setVariable] = useState('');
     // JS
-     let arr = [
+    function inptVlue(e) {
+        setVariable(e.target.value);
+    }
+    function btn() {
+        setInptData([...inptData,variable]);
+    }
+    let arr = [
         {
-            heading : 'S.No',
-            names : 'Names',
-            attendence : 'Attendence',
-            marks : 'Obtained Marks'
+            serialNum: '1',
+            name: 'Muhammad',
+            attendence: '80%',
+            obtainedNum: '95'
         },
         {
-            firstStudent : 'Muhammad',
-            secondStudent : 'Sadaan',
-            thirdStudent : 'Siddique',
-            fourthStudent : 'Irfan'
+            serialNum: '2',
+            name: 'Sadaan',
+            attendence: '85%',
+            obtainedNum: '96'
+        },
+        {
+            serialNum: '2',
+            name: inptData,
+            attendence: '85%',
+            obtainedNum: '96'
+        },
+        {
+            serialNum: '2',
+            name: inptData,
+            attendence: '85%',
+            obtainedNum: '96'
         }
-     ]
-     let newArr = arr.map((item)=>{
-        return <AboutChild data={item}/> ;
-     })
+    ]
+    let newArr = arr.map((item) => {
+        return <AboutChild data={item} />;
+    })
     // HTML
     return (
         <>
@@ -32,8 +51,10 @@ function About() {
                 <Link style={{ color: 'white', textDecoration: 'none' }} to="/contact">Contact</Link>:
                 <Link style={{ color: 'white', textDecoration: 'none' }} to="/others">Others</Link>
             </nav>
-            {newArr}    
-            
+            <input type="text" onChange={inptVlue} />
+            <button onClick={btn}>Add </button>
+            {newArr}
+
         </>
     )
 }

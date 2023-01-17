@@ -16,3 +16,11 @@ nav {
 nav:hover{
     letter-spacing: 0px;
 }
+table{
+    /* padding: 20px;    */
+}
+table tr{
+    padding: 20px;
+    text-align: center;
+    color: blue;
+}

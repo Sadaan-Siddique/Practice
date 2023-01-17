@@ -1,22 +1,22 @@
 import React from 'react'
-
+import '../app.css'
 function AboutChild(props) {
     console.log(props.data)
     return (
         <>
-            <table border={'2px'} cellSpacing={'5px'}>
+            <table border={'5px'} cellPadding={'5px'} cellSpacing={'5'} align={'center'}>
                 <caption>Table</caption>
                 <tr>
-                    <td>{props.data.heading}</td>
-                    <td>{props.data.names}</td>
-                    <td>{props.data.attendence}</td>
-                    <td>{props.data.marks}</td>
+                    <td>S.No</td>
+                    <td>Names</td>
+                    <td>Attendence</td>
+                    <td>Obtained Marks</td>
                 </tr>
                 <tr>
-                    <td>{props.data.firstStudent}</td>
-                    <td>{props.data.secondStudent}</td>
-                    <td>{props.data.thirdStudent}</td>
-                    <td>{props.data.fourthStudent}</td>
+                    <td>{props.data.serialNum}</td>
+                    <td>{props.data.name}</td>
+                    <td>{props.data.attendence}</td>
+                    <td>{props.data.obtainedNum}</td>
                 </tr>
 
             </table>
