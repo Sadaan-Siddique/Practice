@@ -6,6 +6,7 @@ function About() {
     // React Hooks
     const [inptData, setInptData] = useState([]);
     const [variable, setVariable] = useState('');
+    const [newvar , setNewVar] = useState([]);
     // JS
     function inptVlue(e) {
         setVariable(e.target.value);
@@ -13,6 +14,9 @@ function About() {
     function btn() {
         setInptData([...inptData,variable]);
     }
+    useEffect(()=>{
+        console.log(arr[3].name);
+    },[inptData]);
     function btnTwo(){
         inptData.pop();
         console.log(inptData);
