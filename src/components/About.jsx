@@ -15,6 +15,7 @@ function About() {
     }
     function btnTwo(){
         inptData.pop();
+        console.log(inptData);
     }
     let arr = [
         {
