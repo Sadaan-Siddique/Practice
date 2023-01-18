@@ -13,6 +13,9 @@ function About() {
     function btn() {
         setInptData([...inptData,variable]);
     }
+    function btnTwo(){
+        inptData.pop();
+    }
     let arr = [
         {
             serialNum: '1',
@@ -28,7 +31,7 @@ function About() {
         },
         {
             serialNum: '2',
-            name: inptData,
+            name: variable,
             attendence: '85%',
             obtainedNum: '96'
         },
@@ -53,6 +56,7 @@ function About() {
             </nav>
             <input type="text" onChange={inptVlue} />
             <button onClick={btn}>Add </button>
+            <button onClick={btnTwo}>Subtract </button>
             {newArr}
 
         </>
