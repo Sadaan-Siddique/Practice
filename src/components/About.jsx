@@ -6,18 +6,18 @@ function About() {
     // React Hooks
     const [inptData, setInptData] = useState([]);
     const [variable, setVariable] = useState('');
-    const [newvar , setNewVar] = useState([]);
+    const [newvar, setNewVar] = useState([]);
     // JS
     function inptVlue(e) {
         setVariable(e.target.value);
     }
     function btn() {
-        setInptData([...inptData,variable]);
+        setInptData([...inptData, variable]);
     }
-    useEffect(()=>{
+    useEffect(() => {
         console.log(arr[3].name);
-    },[inptData]);
-    function btnTwo(){
+    }, [inptData]);
+    function btnTwo() {
         inptData.pop();
         console.log(inptData);
     }
@@ -63,6 +63,20 @@ function About() {
             <button onClick={btn}>Add </button>
             <button onClick={btnTwo}>Subtract </button>
             {newArr}
+            <footer>
+                <div class="social-icons">
+                    <a href="#">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </div>
+                <p>Copyright ©2022 My Website</p>
+            </footer>
 
         </>
     )
