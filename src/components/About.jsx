@@ -18,7 +18,7 @@ function About() {
         console.log(arr[3].name);
     }, [inptData]);
     function btnTwo() {
-        inptData.pop();
+        setInptData(...inptData.pop())
         console.log(inptData);
     }
     let arr = [
@@ -62,7 +62,16 @@ function About() {
             <input type="text" onChange={inptVlue} />
             <button onClick={btn}>Add </button>
             <button onClick={btnTwo}>Subtract </button>
-            {newArr}
+            <table border={'5px'} cellPadding={'5px'} cellSpacing={'5'} align={'center'}>
+                <caption>Table</caption>
+                <tr>
+                    <td>S.No</td>
+                    <td>Names</td>
+                    <td>Attendence</td>
+                    <td>Obtained Marks</td>
+                </tr>
+                {newArr}
+            </table>
             <footer>
                 <div class="social-icons">
                     <a href="#">
