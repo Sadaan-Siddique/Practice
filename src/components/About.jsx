@@ -18,7 +18,8 @@ function About() {
         console.log(arr[3].name);
     }, [inptData]);
     function btnTwo() {
-        setInptData(...inptData.pop())
+        inptData.splice(-1)
+        setInptData (inptData)
         console.log(inptData);
     }
     let arr = [
@@ -48,7 +49,7 @@ function About() {
         }
     ]
     let newArr = arr.map((item) => {
-        return <AboutChild data={item} />;
+        return ( <AboutChild data={item} />)
     })
     // HTML
     return (
@@ -62,6 +63,7 @@ function About() {
             <input type="text" onChange={inptVlue} />
             <button onClick={btn}>Add </button>
             <button onClick={btnTwo}>Subtract </button>
+
             <table border={'5px'} cellPadding={'5px'} cellSpacing={'5'} align={'center'}>
                 <caption>Table</caption>
                 <tr>
@@ -71,7 +73,9 @@ function About() {
                     <td>Obtained Marks</td>
                 </tr>
                 {newArr}
-            </table>
+                </table>
+
+            
             <footer>
                 <div class="social-icons">
                     <a href="#">

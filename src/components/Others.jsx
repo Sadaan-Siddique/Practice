@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { UseEffect, useState } from 'react';
-import Product from '../Product';
 function Others() {
     // React Hooks
     const [icon, setIcon] = useState(0)
@@ -21,7 +20,6 @@ function Others() {
     let strng = 'Reload';
     return (
         <>
-        <Product/>
             <nav>
                 <Link style={{ color: 'white', textDecoration: 'none' }} to="/">Home</Link>:
                 <Link style={{ color: 'white', textDecoration: 'none' }} to="/about">About</Link>:

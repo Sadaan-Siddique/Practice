@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import Product from './Product';
 import Practice from './components/Practice';
 import Contact from './components/Contact';
 import About from './components/About';
