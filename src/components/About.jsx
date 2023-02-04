@@ -53,13 +53,7 @@ function About() {
     })
     // HTML
     return (
-        <>
-            <nav>
-                <Link style={{ color: 'white', textDecoration: 'none' }} to="/">Home</Link>:
-                <Link style={{ color: 'white', textDecoration: 'none' }} to="/about">About</Link>:
-                <Link style={{ color: 'white', textDecoration: 'none' }} to="/contact">Contact</Link>:
-                <Link style={{ color: 'white', textDecoration: 'none' }} to="/others">Others</Link>
-            </nav>
+        <>     
             <input type="text" onChange={inptVlue} />
             <button onClick={btn}>Add </button>
             <button onClick={btnTwo}>Subtract </button>

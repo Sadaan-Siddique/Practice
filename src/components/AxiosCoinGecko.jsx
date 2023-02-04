@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { Outlet, Link } from 'react-router-dom';
 import axios from 'axios'
 function AxiosCoinGecko() {
   const [coinData, setCoinData] = useState([]);
@@ -12,6 +13,7 @@ function AxiosCoinGecko() {
   return (
     <>
       <div>AxiosCoinGecko</div>
+      <Outlet />
       <table className='table'>
         <caption>Currency Data</caption>
         <thead>
@@ -30,7 +32,7 @@ function AxiosCoinGecko() {
           {coinData.map((item) => {
             return (<>
               <tr>
-                <td>{item.id}</td>
+                <td><Link to='/data'>{item.id}</Link></td>
                 <td>${item.market_data.current_price.aed}</td>
                 <td>{item.market_data.price_change_percentage_1h_in_currency.aed}</td>
                 <td>{item.market_data.price_change_percentage_24h_in_currency.aed}</td>
