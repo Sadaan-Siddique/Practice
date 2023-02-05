@@ -11,6 +11,7 @@ import About from './components/About';
 import Others from './components/Others';
 import CoinData from './components/CoinData';
 import UseParams from './components/UseParams';
+import AxiosChild from './components/AxiosChild';
 function App() {
   // React Hooks
 
@@ -37,6 +38,7 @@ function App() {
           <Route path=":params" element={<UseParams />} />
         </Route>
         <Route path="/axios" element={<Axios />} />
+        <Route path="/axios/:urlData" element={<AxiosChild />} />
         <Route path="*" element={<div className='text-center mt-5'><h1>Invalid URL </h1><h3>404 Page not found</h3></div>} />
       </Routes>
 

@@ -18,6 +18,7 @@ function UseParams() {
         <>
             <div>UseParams</div>
             <h1>{paramsData.params}</h1>
+            <h2>{}</h2>
         </>
     )
 }

@@ -1,20 +1,24 @@
 import React from 'react'
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 function Axios() {
     // React Hooks
     const [user, setUser] = useState([]);
     // JS
-    axios.get('https://api.github.com/users').then(
-        (res) => {
-            setUser(res.data)
-            // console.log(res);
-        }
-    ).catch(
-        (err) => {
-            console.log(err)
-        }
-    )
+    useEffect(() => {
+        axios.get('https://api.github.com/users').then(
+            (res) => {
+                setUser(res.data)
+                console.log(res);
+            }
+        ).catch(
+            (err) => {
+                console.log(err)
+            }
+        )
+    }, [])
+
     return (
         <>
             <div>Axios</div>
@@ -27,6 +31,7 @@ function Axios() {
                                 <h5 className="card-title">{item.login}</h5>
                                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href={item.html_url} target={'_blank'} className="btn btn-primary">Go somewhere</a>
+                                <Link to={`/axios/${item.login}`} className="btn btn-success mt-1">Go somewhere</Link>
                             </div>
                         </div>
                     </>
