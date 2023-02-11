@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { createContext,useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
-import { UseEffect, useState } from 'react';
 function Others() {
     // React Hooks
     const [icon, setIcon] = useState(0)

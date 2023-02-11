@@ -12,14 +12,16 @@ function Contact() {
 
     function submitfunc(e) {
         e.preventDefault();
+
         console.log(inptEmail.current.value);
         console.log(inptPassword.current.value);
+
         let userData = {
             email : inptEmail.current.value,
             password : inptPassword.current.value
         }
 
-        let url = 'https://comfortable-gold-belt.cyclic.app/signup';
+        let url = 'https://comfortable-gold-belt.cyclic.app/login';
         axios.post(url, userData).then((res)=>{
             setStatusMsg('You Have Signed in Successfully');
             console.log(res);
@@ -34,11 +36,11 @@ function Contact() {
     return (
         <>
             <form className='form text-center mt-5 container'>
-                <h1 className='text-center display-1 fw-bold'>Login Form</h1>
-                <h1 className='text-center display-3'>{statusMsg}</h1>
-                <label>Email :</label><input ref={inptEmail} className='form-control ps-2 py-1' type="text" placeholder='Type Email' />
-                <label>Password :</label><input ref={inptPassword} className='form-control ps-2 py-1' type="text" placeholder='Type Password' />
-                <button type='submit' onClick={submitfunc}>Submit</button>
+                <h1 className='text-center display-3 fw-bold'>Login Form</h1>
+                <h1 className='text-center display-5'>{statusMsg}</h1>
+                <label>Email :</label><input ref={inptEmail} className='form-control ps-2 py-1 border-1 border-primary ' type="text" placeholder='Type Email' />
+                <label>Password :</label><input ref={inptPassword} className='form-control ps-2 py-1 border-1 border-primary' type="text" placeholder='Type Password' />
+                <button type='submit' className='btn btn-outline-primary border-dark text-dark mt-3 fw-bold' onClick={submitfunc}>Submit</button>
             </form>
         </>
     )

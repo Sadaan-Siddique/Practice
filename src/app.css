@@ -5,8 +5,11 @@
 
 nav {
     text-align: center;
-    background-color: black;
-    color: white;
+    position: sticky;
+    top: 0px;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    font-weight: bolder;
     text-decoration: none;
     letter-spacing: 1px;
     transition: all;
