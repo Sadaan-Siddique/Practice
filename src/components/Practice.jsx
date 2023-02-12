@@ -13,7 +13,7 @@ function Practice() {
     useEffect(() => {
         console.log(inptArr);
         setInptArr([...inptArr, inptData])
-        inptText.current.value= '';
+        inptText.current.value = '';
         // setInptData('');
     }, [inptData]);
     return (
@@ -21,16 +21,20 @@ function Practice() {
             <div className='container text-center mt-5'>
                 <input ref={inptText} type="text" className='p-1' />
                 <button onClick={btnfunc} className='btn btn-outline-dark fw-bold'>Click</button>
-                <ul>
-                    {inptArr.map((item) => {
-                        return (
-                            <>
-                                {/* <li>{item.inptObj.inptData}</li> */}
-                                <li>{item}</li>
-                            </>
-                        )
-                    })}
-                </ul>
+                <table className='table'>
+                    <tbody>
+                        {inptArr.map((item) => {
+                            return (
+                                <>
+                                    {/* <li>{item.inptObj.inptData}</li> */}
+                                    <tr>
+                                        <td>{item}</td>
+                                    </tr>
+                                </>
+                            )
+                        })}
+                    </tbody>
+                </table>
             </div>
         </>
     )
