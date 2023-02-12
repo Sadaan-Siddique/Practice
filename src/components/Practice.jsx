@@ -22,24 +22,10 @@ function Practice() {
 }
 export function UseEffect() {
     // State Variables
-    const [inpt, setInpt] = useState("")
-    const [a, setA] = useState("")
-    function para() {
-        console.log("This is inpt : ", inpt);
-    }
-    function print() {
-        setA(inpt);
-    }
-    useEffect(print, [inpt]);
+    
     return (
         <>
-            <h1>hello</h1>
-            <button onClick={para}>Click</button>
-            <p>{inpt}</p>
-            <h2>{a}</h2>
-            <input type="text" onChange={(e) => {
-                setInpt(e.target.value);
-            }} />
+            <h3>This is "useEffect(component) Named Export from './components/Practice' "</h3>
         </>
     )
 }

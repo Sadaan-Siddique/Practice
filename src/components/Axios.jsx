@@ -2,27 +2,16 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import useAuth from '../hooks/authHook';
 function Axios() {
     // React Hooks
-    const [user, setUser] = useState([]);
+   const { git } = useAuth();
     // JS
-    useEffect(() => {
-        axios.get('https://api.github.com/users').then(
-            (res) => {
-                setUser(res.data)
-                console.log(res);
-            }
-        ).catch(
-            (err) => {
-                console.log(err)
-            }
-        )
-    }, [])
     
     return (
         <>
             <div>Axios</div>
-            {user.map((item) => {
+            {git.map((item) => {
                 return (
                     <>
                         <div className="card" style={{ width: "18rem" }}>

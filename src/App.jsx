@@ -28,6 +28,7 @@ function App() {
         <Link style={{ color: 'black', textDecoration: 'none' }} to="/coin">CoinGecko</Link>:
         <Link style={{ color: 'black', textDecoration: 'none' }} to="/axios">GitAPI</Link>
       </nav>
+      <UseEffect/>
       <Routes>
         <Route path="/" element={<Practice />} />
         <Route path="/about" element={<About />} />
