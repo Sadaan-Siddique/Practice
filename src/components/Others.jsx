@@ -1,38 +1,14 @@
 import React, { createContext,useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import useAuth from '../hooks/authHook';
 function Others() {
     // React Hooks
-    const [icon, setIcon] = useState(0)
-    const [inpt, setInpt] = useState('');
-    const [arr, setArr] = useState([]);
+     const {auth,git} = useAuth();
     // JS
-    function inptfunc(e){
-        setInpt(e.target.value);
-        setArr([...arr,inpt])
-      }
-    function newfunc(){
-      console.log(arr);
-    }   
-    //   UseEffect
-      useEffect(newfunc,[icon]);
-
-    let strng = 'Reload';
     return (
         <>
-            <h1>
-                Others
-            </h1>
-            <input type="text" onChange={inptfunc} />
-            <button onClick={() => {
-                setIcon(icon + 1 * 2);
-                console.log(strng.replace('Reload', 'Component Reload'), icon);
-            }}>
-                Click
-            </button>
-            <p>
-                {icon+' '+inpt}
-
-            </p>
+        <h1>{auth}</h1>
+        <h4>{git[0].login}</h4>
         </>
     )
 }
