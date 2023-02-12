@@ -1,28 +1,51 @@
-import React, { useEffect, useState } from 'react'
-import PracticeChild from './PracticeChild'
+import React, { useEffect, useState, useRef } from 'react'
 import './Practice.css'
 function Practice() {
-    // JS
-    let arr = [
-        { img: 'https://media.istockphoto.com/id/632443888/photo/founder-of-pakistan-jinnahs-tomb-called-mazar-e-quid-karachi.jpg?b=1&s=170667a&w=0&k=20&c=IWa11lLbA-cbZopeLyAc6-Lzi92WGilX84g6yuR_1Ww=', product: 'Product 1' },
-        { img: 'https://media.istockphoto.com/id/632443888/photo/founder-of-pakistan-jinnahs-tomb-called-mazar-e-quid-karachi.jpg?b=1&s=170667a&w=0&k=20&c=IWa11lLbA-cbZopeLyAc6-Lzi92WGilX84g6yuR_1Ww=', product: 'Product 2' }
-    ]
-    let newArr = arr.map((item) => {
-        return (
-            <>
-                <PracticeChild key={item} data={item} />
-            </>
-        )
-    })
+    // React Hooks
+    const [inptData, setInptData] = useState([]);
+    const [inptArr, setInptArr] = useState([]);
+    const inptText = useRef();
+    // js
+    const btnfunc = (e) => {
+        e.preventDefault();
+        setInptData(inptText.current.value)
+    }
+    useEffect(() => {
+        console.log(inptArr);
+        setInptArr([...inptArr, inptData])
+        inptText.current.value= '';
+        // setInptData('');
+    }, [inptData]);
     return (
         <>
-            {newArr}
+            <div className='container text-center mt-5'>
+                <input ref={inptText} type="text" className='p-1' />
+                <button onClick={btnfunc} className='btn btn-outline-dark fw-bold'>Click</button>
+                <ul>
+                    {inptArr.map((item) => {
+                        return (
+                            <>
+                                {/* <li>{item.inptObj.inptData}</li> */}
+                                <li>{item}</li>
+                            </>
+                        )
+                    })}
+                </ul>
+            </div>
         </>
     )
 }
+
+
+
+
+
+
+
+
+
 export function UseEffect() {
     // State Variables
-    
     return (
         <>
             <h3>This is "useEffect(component) Named Export from './components/Practice' "</h3>
