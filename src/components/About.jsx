@@ -1,90 +1,45 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import AboutChild from './AboutChild';
 import { useEffect, useState } from 'react';
+import useAuth from '../hooks/authHook';
 function About() {
     // React Hooks
-    const [inptData, setInptData] = useState([]);
-    const [variable, setVariable] = useState('');
-    const [newvar, setNewVar] = useState([]);
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [password, setPassword] = useState('')
     // JS
-    function inptVlue(e) {
-        setVariable(e.target.value);
+    const { setLoginObj } = useAuth()
+    const submitfunc = (e) => {
+        e.preventDefault();
+        setLoginObj({
+            phoneNumber,
+            password
+        });
+        console.log(phoneNumber,password)
     }
-    function btn() {
-        setInptData([...inptData, variable]);
-    }
-    useEffect(() => {
-        console.log(arr[3].name);
-    }, [inptData]);
-    function btnTwo() {
-        inptData.splice(-1)
-        setInptData (inptData)
-        console.log(inptData);
-    }
-    let arr = [
-        {
-            serialNum: '1',
-            name: 'Muhammad',
-            attendence: '80%',
-            obtainedNum: '95'
-        },
-        {
-            serialNum: '2',
-            name: 'Sadaan',
-            attendence: '85%',
-            obtainedNum: '96'
-        },
-        {
-            serialNum: '2',
-            name: variable,
-            attendence: '85%',
-            obtainedNum: '96'
-        },
-        {
-            serialNum: '2',
-            name: inptData,
-            attendence: '85%',
-            obtainedNum: '96'
-        }
-    ]
-    let newArr = arr.map((item) => {
-        return ( <AboutChild data={item} />)
-    })
     // HTML
     return (
-        <>     
-            <input type="text" onChange={inptVlue} />
-            <button onClick={btn}>Add </button>
-            <button onClick={btnTwo}>Subtract </button>
-
-            <table border={'5px'} cellPadding={'5px'} cellSpacing={'5'} align={'center'}>
-                <caption>Table</caption>
-                <tr>
-                    <td>S.No</td>
-                    <td>Names</td>
-                    <td>Attendence</td>
-                    <td>Obtained Marks</td>
-                </tr>
-                {newArr}
-                </table>
-
-            
-            <footer>
-                <div class="social-icons">
-                    <a href="#">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa fa-linkedin"></i>
-                    </a>
+        <>
+            <div className='container mt-4 text-center'>
+                <div className='mt-3'>
+                    <label>Phone Number :  </label>
+                    <input type="text" value={phoneNumber} placeholder='Phone number' className='px-2 py-1' onChange={(e) => {
+                        setPhoneNumber(e.target.value);
+                    }} />
                 </div>
-                <p>Copyright ©2022 My Website</p>
-            </footer>
-
+                <div className='mt-3'>
+                    <label>Password :  </label>
+                    <input type="password" value={password} placeholder='Password' className='px-2 py-1' onChange={(e) => {
+                        setPassword(e.target.value);
+                    }} />
+                </div>
+                <div>
+                    <button type='submit' className='mt-3 fw-bold btn btn-dark btn-outline-danger' onClick={submitfunc}>Submit</button>
+                </div>
+                <div>
+                    <p>Phone Number : {phoneNumber}</p>
+                    <p>Password : {password}</p>
+                </div>
+            </div>
         </>
     )
 }
