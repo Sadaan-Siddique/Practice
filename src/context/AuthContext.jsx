@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 function AuthContextProvider({ children }) {
     const [msg, setMsg] = useState(false)
     const [auth, setAuth] = useState('hello')
-    const [git, setGit] = useState('hello')
+    const [git, setGit] = useState([])
     // const [loginArr, setLoginArr] = useState([]);
     useEffect(() => {
         axios.get('https://api.github.com/users').then(

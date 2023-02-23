@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import Todo from './Todo';
 import './Practice.css'
 function Practice() {
     // React Hooks
@@ -75,6 +76,7 @@ function Practice() {
                     </tbody>
                 </table>
             </div>
+            <Todo/>
 
 
         </>
