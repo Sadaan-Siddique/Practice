@@ -13,6 +13,7 @@ function About() {
     const navigate = useNavigate();
     // JS
     const { msg, setMsg, API_URL } = useAuth()
+    
     const submitfunc = (e) => {
         e.preventDefault();
         setLoading(true)
