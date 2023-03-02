@@ -6,64 +6,66 @@ import useAuth from '../hooks/authHook';
 import ClipLoader from "react-spinners/ClipLoader";
 
 function Contact() {
-    let [loading, setLoading] = useState(false);
-    // use State
-    const [num, setNum] = useState(0);
-    const [statusMsg, setStatusMsg] = useState("");
-    // use Ref
-    const inptPhone = useRef();
-    const inptPassword = useRef();
-    const inptText = useRef();
-    // Auth Hook
-    const { auth, setAuth, API_URL } = useAuth();
-    // use Navigate
-    const navigate = useNavigate();
-    //  JS
-    function submitfunc(e) {
-        setLoading(true)
-        e.preventDefault();
-        parseInt(inptPhone)
-        console.log(inptPhone.current.value);
-        console.log(inptPassword.current.value);
-        let userData = {
-            phone: inptPhone.current.value,
-            password: inptPassword.current.value
+    const [arr, setArr] = useState([]);
+    const [editValue , setEditValue] = useState('')
+    const [editCheck, setEditCheck] = useState(false);
+   const inptValue = useRef();
+    const btnfunc = () => {
+        if (inptValue.current.value === '') {
+            alert('Please Write something')
+        } else {
+            if (editCheck) {
+                 arr[editValue] = inptValue.current.value;
+                 setArr(arr)
+                 setEditCheck(false)
+            } else {
+                setArr([...arr, inptValue.current.value])
+                console.log(arr)
+                inptValue.current.value = '';
+
+            }
+
         }
+    }
+    const deletefunc = (index) => {
+        let newArr = [...arr]
+        newArr.splice(index, 1)
+        console.log(newArr)
+        setArr(newArr)
+    }
 
-        let url = API_URL + '/login';
-        axios.post(url, userData).then((res) => {
-            setStatusMsg('You Have Logged in Successfully');
-            console.log(res);
-            setLoading(false)
-            navigate('/')
-        }).catch((err) => {
-            setStatusMsg('Not Logged in');
-            console.log(err);
-            setLoading(false)
-            navigate('/about')
-        });
+    const editfunc = (index) => {
+        console.log(index)
+        inptValue.current.value = arr[index];
+        setEditValue(arr[index])
+        setEditCheck(true)
+    }
 
-        inptPhone.current.value = ' ';
-        inptPassword.current.value = ' ';
+    const deleteAllFunc = () => {
+        setArr([]);
     }
     return (
         <>
-            <form className='form text-center mt-5 container'>
-                    {loading ? (<ClipLoader
-                        loading={loading}
-                        size={150}
-                        aria-label="Loading Spinner"
-                        data-testid="loader"
-                    />) : (<h1>'Log in'</h1>)}
-                <h1>{statusMsg}</h1>
-                <h1 className='text-center display-3 fw-bold'>Login Form</h1>
-                <h1 className='text-center display-5'>{statusMsg}</h1>
-                <label>Phone Number :</label><input ref={inptPhone} className='form-control ps-2 py-1 border-1 border-primary ' type="number" placeholder='Type Phone Number' />
-                <label>Password :</label><input ref={inptPassword} className='form-control ps-2 py-1 border-1 border-primary' type="password" placeholder='Type Password' />
-                <button type='submit' className='btn btn-outline-primary border-dark text-dark mt-3 fw-bold' onClick={submitfunc}>Submit</button>
-                {/* Phone Number : {inptPhoneNumber} */}
-                {/* Passsword : {inptPassword} */}
-            </form>
+            <div className='container text-center'>
+                <h1>Todo List</h1>
+                <input type="text" ref={inptValue} placeholder='Enter Something' className='ps-2 py-1' />
+                <button className='btn btn-primary' onClick={btnfunc}>Add</button>
+                <ul>
+                    {
+                        arr.map((item, index) => {
+                            return (
+                                <>
+                                    <li key={index}>{item}
+                                        <button onClick={() => { deletefunc(index) }}>Delete</button>
+                                        <button onClick={() => { editfunc(index) }}>Edit</button>
+                                    </li>
+                                </>
+                            )
+                        })
+                    }
+                </ul>
+                <button onClick={deleteAllFunc}>Delete All</button>
+            </div>
         </>
     )
 }

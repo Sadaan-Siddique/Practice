@@ -1,17 +1,16 @@
 import React from 'react';
-import { UseEffect } from './components/Practice';
 import './app.css'
 import Axios from './components/Axios';
 import AxiosCoinGecko from './components/AxiosCoinGecko';
 import { Link } from "react-router-dom";
 import { Routes, Route, } from "react-router-dom";
-import Practice from './components/Practice';
 import Contact from './components/Contact';
 import About from './components/About';
 import Others from './components/Others';
 import CoinData from './components/CoinData';
 import UseParams from './components/UseParams';
 import AxiosChild from './components/AxiosChild';
+import Todo from './components/Todo';
 function App() {
   // React Hooks
 
@@ -29,7 +28,7 @@ function App() {
         <Link style={{ color: 'black', textDecoration: 'none' }} to="/axios">GitAPI</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<Practice />} />
+        <Route path="/" element={<Todo />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/others" element={<Others />} />
