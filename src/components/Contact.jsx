@@ -7,17 +7,21 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 function Contact() {
     const [arr, setArr] = useState([]);
-    const [editValue , setEditValue] = useState('')
+    const [editValue, setEditValue] = useState('')
+    const [checkValue, setCheckValue] = useState('');
+    const [newCheck, setNewCheck] = useState('');
     const [editCheck, setEditCheck] = useState(false);
-   const inptValue = useRef();
+    const [strikeCheck, setStrikeCheck] = useState(false);
+    const inptValue = useRef();
     const btnfunc = () => {
         if (inptValue.current.value === '') {
             alert('Please Write something')
         } else {
             if (editCheck) {
-                 arr[editValue] = inptValue.current.value;
-                 setArr(arr)
-                 setEditCheck(false)
+                arr[editValue] = inptValue.current.value;
+                setArr(arr)
+                setEditCheck(false)
+                inptValue.current.value = '';
             } else {
                 setArr([...arr, inptValue.current.value])
                 console.log(arr)
@@ -27,6 +31,7 @@ function Contact() {
 
         }
     }
+
     const deletefunc = (index) => {
         let newArr = [...arr]
         newArr.splice(index, 1)
@@ -35,10 +40,21 @@ function Contact() {
     }
 
     const editfunc = (index) => {
-        console.log(index)
         inptValue.current.value = arr[index];
-        setEditValue(arr[index])
+        setEditValue(index)
         setEditCheck(true)
+    }
+
+    const checkfunc = (item, index) => {
+        setStrikeCheck(true)
+        setCheckValue(item);
+        let tempCheck = checkValue;
+        tempCheck.strike();
+        setNewCheck(tempCheck)
+        console.log(newCheck);
+        // newCheck.strike();
+        setStrikeCheck(false)
+
     }
 
     const deleteAllFunc = () => {
@@ -55,9 +71,14 @@ function Contact() {
                         arr.map((item, index) => {
                             return (
                                 <>
-                                    <li key={index}>{item}
+                                    <li key={index}>
+                                        {strikeCheck ?
+                                            (newCheck) :
+                                            (item)
+                                        }
                                         <button onClick={() => { deletefunc(index) }}>Delete</button>
                                         <button onClick={() => { editfunc(index) }}>Edit</button>
+                                        <button onClick={() => { checkfunc(item, index) }}>Checked</button>
                                     </li>
                                 </>
                             )
